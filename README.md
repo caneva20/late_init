@@ -13,8 +13,6 @@ If you want to display a widget that depends on the context (such as ModalRoute 
 
 This demo showcases how this package resolves the shortcomings shown above:
 
-**GOOD CODE**
-
 ```dart
 import 'package:flutter/material.dart';
 import 'package:late_init/late_init.dart';
@@ -48,3 +46,5 @@ class HomeScreenState extends State<HomeScreen> with LateInitMixin {
   }
 }
 ```
+
+*This package was heavily inspired by [after_layout](https://pub.dev/packages/after_layout)
