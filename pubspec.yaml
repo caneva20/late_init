@@ -1,8 +1,7 @@
 name: late_init
 description: Execute code at a later stage, but before build has been called for the first time. Useful for initializations that depends on the context
-version: 0.0.1
-author:
-homepage:
+version: 1.0.0
+homepage: https://github.com/caneva20/late_init
 
 environment:
   sdk: ">=2.1.0 <3.0.0"
