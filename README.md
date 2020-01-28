@@ -2,6 +2,8 @@
 
 Execute code at a later stage, but before build has been called for the first time. Useful for initializations that depends on the context
 
+*This package was heavily inspired by [after_layout](https://pub.dev/packages/after_layout)
+
 ## Quick Usage
 
 Add with LateInitMixin<MyWidget> mixin to your State<MyWidget> class and then implement the void lateInitState() abstract method. Code in this method will be called once at a later stage where context can be used for actions such as `ModalRoute.of(context)`, `Provider.of<>(context)`
@@ -46,5 +48,3 @@ class HomeScreenState extends State<HomeScreen> with LateInitMixin {
   }
 }
 ```
-
-*This package was heavily inspired by [after_layout](https://pub.dev/packages/after_layout)
