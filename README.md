@@ -2,14 +2,11 @@
 
 Execute code at a later stage, but before build has been called for the first time. Useful for initializations that depends on the context
 
-*This package was heavily inspired by [after_layout](https://pub.dev/packages/after_layout)
+*This package was inspired by [after_layout](https://pub.dev/packages/after_layout)
 
 ## Quick Usage
 
 Add with LateInitMixin<MyWidget> mixin to your State<MyWidget> class and then implement the void lateInitState() abstract method. Code in this method will be called once at a later stage where context can be used for actions such as `ModalRoute.of(context)`, `Provider.of<>(context)`
-
-## Motivation
-If you want to display a widget that depends on the context (such as ModalRoute or [Provider](https://pub.dev/packages/provider) ), you can not use that in `initState`.
 
 ## Usage
 
@@ -48,3 +45,6 @@ class HomeScreenState extends State<HomeScreen> with LateInitMixin {
   }
 }
 ```
+
+## What not to do with this package
+If you're trying to get the size, position or something that depends on the layout of the widget, using lateInitState WILL NOT DO, for that kind of information the widget needs to be rendered at least once before you can get that info, if that's what you're trying to do take a loot at [after_layout](https://pub.dev/packages/after_layout) which is package similar to this but to run code after the first layout
