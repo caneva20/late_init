@@ -36,7 +36,7 @@ class HomeScreen extends StatefulWidget {
 class HomeScreenState extends State<HomeScreen> with LateInitMixin {
   @override
   void lateInitState() {
-    final someId = ModalRoute.of(context).settings.arguments as String;
+    final someId = ModalRoute.of(context)!.settings.arguments as String?;
   }
 
   @override
