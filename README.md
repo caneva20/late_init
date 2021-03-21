@@ -6,9 +6,38 @@ Execute code at a later stage, but before build has been called for the first ti
 
 ## Quick Usage
 
-Add with LateInitMixin<MyWidget> mixin to your State<MyWidget> class and then implement the void lateInitState() abstract method. Code in this method will be called once at a later stage where context can be used for actions such as `ModalRoute.of(context)`, `Provider.of<>(context)`
+Given a **statefull** widget:
 
-## Usage
+```dart
+class MyWidget extends StatefulWidget {
+  @override
+  MyWidgetState createState() => MyWidgetState();
+}
+
+class MyWidgetState extends State<MyWidget> {
+  @override
+  Widget build(BuildContext context) {
+    //TODO: implement build method
+  }
+}
+```
+
+Add `with LateInitMixin<MyWidget>` mixin to your `State<MyWidget>` class and then implement the `void lateInitState()` method.
+
+```dart
+class MyWidgetState extends State<MyWidget> /*HERE. Add this bit -->*/ with LateInitMixin<MyWidget> {
+  //Code in this method will be called once at a later stage where [context]
+  //can be used for actions such as `ModalRoute.of(context)`, `Provider.of<>(context)`
+  @override
+  void lateInitState() {
+    final someId = ModalRoute.of(context).settings.arguments as String;
+  }
+  
+  // The rest of the widget...
+}
+```
+
+## Complete example
 
 This demo showcases how this package resolves the shortcomings shown above:
 
@@ -28,12 +57,12 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class HomeScreen extends StatefulWidget {
+class MyWidget extends StatefulWidget {
   @override
-  HomeScreenState createState() => new HomeScreenState();
+  MyWidgetState createState() => MyWidgetState();
 }
 
-class HomeScreenState extends State<HomeScreen> with LateInitMixin {
+class MyWidgetState extends State<MyWidget> with LateInitMixin<MyWidget> {
   @override
   void lateInitState() {
     final someId = ModalRoute.of(context).settings.arguments as String;
@@ -41,7 +70,9 @@ class HomeScreenState extends State<HomeScreen> with LateInitMixin {
 
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(body: new Container(color: Colors.red));
+    return Scaffold(
+      body: Container(color: Colors.red),
+    );
   }
 }
 ```
