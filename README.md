@@ -78,4 +78,4 @@ class MyWidgetState extends State<MyWidget> with LateInitMixin<MyWidget> {
 ```
 
 ## What not to do with this package
-If you're trying to get the size, position or something that depends on the layout of the widget, using lateInitState WILL NOT DO, for that kind of information the widget needs to be rendered at least once before you can get that info, if that's what you're trying to do take a loot at [after_layout](https://pub.dev/packages/after_layout) which is package similar to this but to run code after the first layout
+If you're trying to get the size, position or something that depends on the layout of the widget, using lateInitState **WILL NOT DO**, for that kind of information the widget needs to be rendered at least once before you can get that info, if that's what you're trying to do, then take a look at [after_layout](https://pub.dev/packages/after_layout) which is a package similar to this, but to run code after the first layout.
