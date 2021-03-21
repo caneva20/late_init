@@ -1,3 +1,4 @@
+## [1.1.0] - statble nullsafe release
 ## [1.1.0-nullsafety.2] - update README
 ## [1.1.0-nullsafety.1] - update README
 ## [1.1.0-nullsafety.0] - migrate to null safety
