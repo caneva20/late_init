@@ -1,6 +1,6 @@
 name: late_init
 description: Execute code at a later stage, but before build has been called for the first time. Useful for initializations that depends on the context
-version: 1.1.0-nullsafety.0
+version: 1.1.0-nullsafety.1
 homepage: https://github.com/caneva20/late_init
 
 environment:
